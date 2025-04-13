@@ -1,0 +1,28 @@
+<div class="bg-white p-6 shadow-sm border-b">
+  <div class="flex gap-4 items-end">
+    <div class="flex-1">
+      <label class="block text-sm font-medium text-gray-700 mb-1">Start Point</label>
+      <input 
+        #startInput
+        [(ngModel)]="startPoint"
+        class="location-input"
+        placeholder="Enter start location"
+      >
+    </div>
+    <div class="flex-1">
+      <label class="block text-sm font-medium text-gray-700 mb-1">End Point</label>
+      <input 
+        #endInput
+        [(ngModel)]="endPoint"
+        class="location-input"
+        placeholder="Enter end location"
+      >
+    </div>
+    <button 
+      (click)="addTrip()"
+      class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors h-[42px]"
+    >
+      Add Trip
+    </button>
+  </div>
+</div>

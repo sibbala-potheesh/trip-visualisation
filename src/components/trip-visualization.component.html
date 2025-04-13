@@ -1,0 +1,48 @@
+<div class="bg-white p-6 rounded-b-lg">
+  <div class="relative mt-8">
+    <div
+      *ngFor="let trip of trips; let i = index"
+      class="flex items-center mb-8"
+    >
+      <div class="w-32 text-center">
+        <div class="font-medium text-gray-800">
+          {{ trip.startPoint.substring(0, 3).toUpperCase() }}
+        </div>
+        <div class="text-xs text-gray-500">
+          {{ getLocationName(trip.startPoint) }}
+        </div>
+      </div>
+
+      <div
+        class="flex-1 relative"
+        [style.marginTop]="trip.level === 2 ? '20px' : '0'"
+      >
+        <!-- Level 1 straight line -->
+        <div *ngIf="trip.level === 1" class="trip-line w-full relative">
+          <div class="connection-dot connection-dot-start"></div>
+          <div *ngIf="!trip.continued" class="trip-arrow"></div>
+          <div class="connection-dot connection-dot-end"></div>
+        </div>
+
+        <!-- Level 2 curved line -->
+        <div *ngIf="trip.level === 2" class="relative">
+          <div class="curved-line"></div>
+          <div class="trip-line-level2 w-full relative">
+            <div class="connection-dot connection-dot-start"></div>
+            <div *ngIf="!trip.continued" class="trip-arrow"></div>
+            <div class="connection-dot connection-dot-end"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-32 text-center">
+        <div class="font-medium text-gray-800">
+          {{ trip.endPoint.substring(0, 3).toUpperCase() }}
+        </div>
+        <div class="text-xs text-gray-500">
+          {{ getLocationName(trip.endPoint) }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
